@@ -25,13 +25,16 @@ export default function UserForm() {
         <div>
             <h3>Create User form</h3>
             <div className='form-group'>
-                <input placeholder='First Name' name='firstname' value={userForm.firstname} onChange={handleEvent}>
+                <input placeholder='First Name' name='firstname' className='form-control' value={userForm.firstname} onChange={handleEvent}>
                 </input>
             </div>
-            <input placeholder='Age' type='number' name='age' value={userForm.age} onChange={handleEvent}></input>
-            <br />Joining date: <input name='joiningDate' type="date" value={userForm.joiningDate} onChange={handleEvent}></input>
+            <input placeholder='Age' type='number' name='age' value={userForm.age} className='form-control' onChange={handleEvent}></input>
+            <label htmlFor='joiningDate'>Joining date:</label>
             <div className='form-group'>
-                <button onClick={save}>Save</button>
+                <input name='joiningDate' type="date" value={userForm.joiningDate} className='form-control' onChange={handleEvent}></input>
+            </div>
+            <div className='form-group'>
+                <button onClick={save} className='form-control btn-primary'>Save</button>
             </div>
 
         </div>
