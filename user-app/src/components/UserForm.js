@@ -4,8 +4,8 @@ import axios from "axios"
 export default function UserForm() {
 
     const [userForm, setUserform] = useState({ 
-        firstname: "Ravi", 
-        age: "23",
+        firstname: "", 
+        age: "",
         joiningDate: "" }) //hook function
 
     const handleEvent = function (event) {
@@ -23,9 +23,9 @@ export default function UserForm() {
     return (
         <div>
             <h3>Create User form</h3>
-            <input name='firstname' value={userForm.firstname} onChange={handleEvent}>
+            <input placeholder='First Name' name='firstname' value={userForm.firstname} onChange={handleEvent}>
             </input>
-            <input name='age'value={userForm.age} onChange={handleEvent}></input>
+            <input placeholder='Age' type='number' name='age' value={userForm.age} onChange={handleEvent}></input>
              <br/>Joining date: <input name='joiningDate'type="date"value={userForm.joiningDate}  onChange={handleEvent}></input>
             <button onClick={save}>Save</button>
         </div>
