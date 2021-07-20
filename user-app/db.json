@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "name": "Ravi",
+      "location": "Patna",
+      "id": 3
+    },
+    {
+      "name": "Ram",
+      "location": "Allahabad",
+      "id": 4
+    },
+    {
+      "firstname": "Raghav",
+      "age": "23",
+      "id": 5
+    },
+    {
+      "firstname": "Raghav",
+      "age": "23",
+      "id": 6
+    },
+    {
+      "firstname": "Ravi",
+      "age": "23",
+      "id": 7
+    },
+    {
+      "firstname": "Krishna",
+      "age": "22",
+      "joiningDate": "2021-07-02",
+      "id": 9
+    },
+    {
+      "firstname": "Prakash",
+      "age": "22",
+      "joiningDate": "2021-07-02",
+      "id": 10
+    }
+  ]
+}
