@@ -45,6 +45,34 @@
       "age": "19",
       "joiningDate": "2021-07-08",
       "id": 14
+    },
+    {
+      "firstname": "Kaustubh",
+      "age": "22",
+      "joiningDate": "2021-07-20",
+      "skill": "JS",
+      "id": 15
+    },
+    {
+      "firstname": "Kiran",
+      "age": "24",
+      "joiningDate": "2021-07-21",
+      "skill": "HTML",
+      "id": 24
+    },
+    {
+      "firstname": "Ruby",
+      "age": "30",
+      "joiningDate": "2021-07-22",
+      "skill": "CSS",
+      "id": 25
+    },
+    {
+      "firstname": "Karen",
+      "age": "35",
+      "joiningDate": "2021-07-22",
+      "skill": "JS",
+      "id": 26
     }
   ]
 }
