@@ -1,24 +1,9 @@
 {
   "users": [
     {
-      "name": "Ravi",
-      "location": "Patna",
-      "id": 3
-    },
-    {
-      "name": "Ram",
-      "location": "Allahabad",
-      "id": 4
-    },
-    {
       "firstname": "Raghav",
       "age": "23",
       "id": 5
-    },
-    {
-      "firstname": "Raghav",
-      "age": "23",
-      "id": 6
     },
     {
       "firstname": "Ravi",
