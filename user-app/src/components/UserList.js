@@ -6,7 +6,7 @@ export default function UserList() {
 
         <div>
             <table className="table table-bordered table-hover table-responsive">
-                <thead>
+                <thead>git
                     <tr>
                         <td> FirstName</td>
                         <td>Age</td>
