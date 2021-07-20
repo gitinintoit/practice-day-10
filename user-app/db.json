@@ -1,44 +1,16 @@
 {
   "users": [
     {
-      "firstname": "Raghav",
-      "age": "23",
-      "id": 5
-    },
-    {
-      "firstname": "Ravi",
-      "age": "23",
-      "id": 7
-    },
-    {
-      "firstname": "Krishna",
-      "age": "22",
-      "joiningDate": "2021-07-02",
-      "id": 9
-    },
-    {
       "firstname": "Prakash",
       "age": "22",
       "joiningDate": "2021-07-02",
       "id": 10
     },
     {
-      "firstname": "Ravi",
-      "age": "23",
-      "joiningDate": "",
-      "id": 11
-    },
-    {
       "firstname": "Ajay",
       "age": "18",
       "joiningDate": "2021-07-20",
       "id": 12
-    },
-    {
-      "firstname": "Gecko",
-      "age": "13",
-      "joiningDate": "2021-07-08",
-      "id": 13
     },
     {
       "firstname": "John",

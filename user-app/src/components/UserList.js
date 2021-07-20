@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
+import Counter from './Counter'
 
 export default function UserList() {
     const [users, setUsers] = useState([]);
@@ -7,22 +8,31 @@ export default function UserList() {
         if(users.length!==0){
             return;
         }
-        console.log("called................")
+        console.log("Updating user list ............")
         const promise = axios.get("http://localhost:4200/users");
         promise.then(function (response) {
             setUsers(response.data)
         })
     })
+
+    function deleteUser(id){
+        const promise=axios.delete("http://localhost:4200/users/"+id);
+        promise.then(function (response) {
+            console.log("deleted");
+        })
+         
+    }
     return (
 
-        <div>
+        <div><Counter count={users.length}></Counter>
             <br/>
-            <table className="table table-bordered table-hover table-responsive">
+            <table className="table table-bordered table-hover table-responsive table-striped">
                 <thead>
                     <tr>
                         <th>FirstName</th>
                         <th>Age</th>
                         <th>Joining Date</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,6 +47,11 @@ export default function UserList() {
                                 </td>
                                 <td>
                                     {user.joiningDate}
+                                </td>
+                                <td>
+                                    <button className="btn btn-danger" onClick={()=>{
+                                        deleteUser(user.id);
+                                    }}>Delete</button>
                                 </td>
                             </tr>
                         )
