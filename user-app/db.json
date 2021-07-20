@@ -36,6 +36,12 @@
       "age": "22",
       "joiningDate": "2021-07-02",
       "id": 10
+    },
+    {
+      "firstname": "Ravi",
+      "age": "23",
+      "joiningDate": "",
+      "id": 11
     }
   ]
 }
