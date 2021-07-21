@@ -4,33 +4,50 @@ import Counter from './Counter'
 
 export default function UserList() {
     const [users, setUsers] = useState([]);
-    useEffect(function () {
-        if(users.length!==0){
-            return;
-        }
+    const [flag,setFlag]=useState(true);
+    function updateList() {
         console.log("Updating user list ............")
-        const promise = axios.get("http://localhost:4200/users");
+        const promise = axios.get(process.env.REACT_APP_SERVER_URL);
         promise.then(function (response) {
             setUsers(response.data)
         })
+    }
+
+    useEffect(function () {
+        if (users.length !== 0) {
+            return;
+        }
+        updateList();
     })
 
-    function deleteUser(id){
-        const promise=axios.delete("http://localhost:4200/users/"+id);
+    function deleteUser(id, index) {
+        const promise = axios.delete(process.env.REACT_APP_SERVER_URL + id);
         promise.then(function (response) {
             console.log("deleted");
+            //updateList();
+            users.splice(index, 1);
+            const newUsers = [...users];
+            setUsers(newUsers);
         })
-         
+
     }
+
+    const sortByAge = () => {
+        setFlag(!flag);
+        users.sort((user1,user2)=> flag?user1.age-user2.age:user2.age-user1.age);
+        const sortedByAgeUsers = [...users];
+        setUsers(sortedByAgeUsers);
+    }
+
     return (
 
         <div><Counter count={users.length}></Counter>
-            <br/>
+            <br />
             <table className="table table-bordered table-hover table-responsive table-striped">
                 <thead>
                     <tr>
                         <th>FirstName</th>
-                        <th>Age</th>
+                        <th onClick={sortByAge}>Age</th>
                         <th>Joining Date</th>
                         <th></th>
                     </tr>
@@ -49,8 +66,8 @@ export default function UserList() {
                                     {user.joiningDate}
                                 </td>
                                 <td>
-                                    <button className="btn btn-danger" onClick={()=>{
-                                        deleteUser(user.id);
+                                    <button className="btn btn-danger" onClick={() => {
+                                        deleteUser(user.id, index);
                                     }}>Delete</button>
                                 </td>
                             </tr>

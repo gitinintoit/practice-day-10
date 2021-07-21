@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { Dropdown } from 'react-bootstrap';
 import { DropdownButton } from 'react-bootstrap';
 import Message from './Message';
+// import UserList from './UserList';
 export default function UserForm() {
 
     const [userForm, setUserform] = useState({
@@ -26,10 +27,10 @@ export default function UserForm() {
     const save = function (event) {
         console.log("User first name: " + userForm.firstname);
         console.log("User age: " + userForm.age);
-        const promise = axios.post("http://localhost:4200/users", userForm);
+        const promise = axios.post(process.env.REACT_APP_SERVER_URL, userForm);
         promise.then(function (response) {
           setMessage({...message,type:'Success',text:"Record was saved"});
-
+         // UserList.updateList();
         })
         promise.catch(function(error){
             setMessage({...message,type:{error},text:"Record was not saved"});

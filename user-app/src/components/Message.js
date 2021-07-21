@@ -7,7 +7,7 @@ export default function Message(props){
         css += (props.message.type === 'error') ? 'danger' : 'success';
     }
     return(
-        <div className="css">{props.message?.text}</div>
+        <div className={css}>{props.message?.text}</div>
     )
 }
 
