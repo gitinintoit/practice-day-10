@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "firstname": "Ravi",
-      "age": "23",
-      "joiningDate": "2021-07-16",
-      "skill": "",
-      "id": 3
-    },
-    {
       "firstname": "Kanishak",
       "age": "23",
       "joiningDate": "2021-07-15",
@@ -27,6 +20,46 @@
       "joiningDate": "2021-07-23",
       "skill": "CSS",
       "id": 12
+    },
+    {
+      "firstname": "Ravi",
+      "age": "23",
+      "joiningDate": "2021-07-02",
+      "skill": "JS",
+      "id": 13
+    },
+    {
+      "firstname": "Kavita",
+      "age": "24",
+      "joiningDate": "2021-07-22",
+      "skill": "CSS",
+      "id": 15
+    },
+    {
+      "firstname": "Kapila",
+      "age": "25",
+      "joiningDate": "2021-07-08",
+      "skill": "HTML",
+      "id": 16
+    },
+    {
+      "firstname": "Kusha",
+      "age": "26",
+      "joiningDate": "2021-07-15",
+      "skill": "HTML",
+      "id": 17
+    },
+    {
+      "firstname": "Prince",
+      "age": "25",
+      "joiningDate": "2021-07-15",
+      "skill": "JS",
+      "id": 18
     }
+  ],
+  "skills": [
+    "HTML",
+    "CSS",
+    "JS"
   ]
 }
