@@ -1,10 +1,11 @@
 import { useState }
     from 'react'
-import axios from "axios"
 import Button from 'react-bootstrap/Button';
 import { Dropdown } from 'react-bootstrap';
 import { DropdownButton } from 'react-bootstrap';
 import Message from './Message';
+import {getAllSkills} from '../service'
+import { saveDataInDB } from '../service';
 // import UserList from './UserList';
 export default function UserForm() {
 
@@ -26,26 +27,17 @@ export default function UserForm() {
     }
 
     const getSkillsFromDB = function (event) {
-        const promise = axios.get(process.env.REACT_APP_SKILLS_URL);
-        promise.then(function (response) {
-            setSkills(response.data);
-        })
+       getAllSkills((response) => setSkills(response.data))
     }
+    
 
     const save = function (event) {
         console.log("User first name: " + userForm.firstname);
         console.log("User age: " + userForm.age);
-        const promise = axios.post(process.env.REACT_APP_SERVER_URL, userForm);
-        promise.then(function (response) {
-            setMessage({ ...message, type: 'Success', text: "Record was saved" });
-            // UserList.updateList();
-        })
-        promise.catch(function (error) {
-            setMessage({ ...message, type: { error }, text: "Record was not saved" });
-
-        })
-
-
+        saveDataInDB(userForm,
+            (response)=>( setMessage({ ...message, type: 'Success', text: "Record was saved" })),
+            (error)=>( setMessage({ ...message, type: { error }, text: "Record was not saved" }))
+        );
     }
     return (
         <div>

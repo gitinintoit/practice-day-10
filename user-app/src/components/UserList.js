@@ -1,16 +1,15 @@
-import axios from "axios";
 import { useEffect, useState } from "react"
+import { deleteUserFromUI, updateUserList } from "../service";
 import Counter from './Counter'
 
 export default function UserList() {
     const [users, setUsers] = useState([]);
-    const [flag,setFlag]=useState(true);
+    const [flag, setFlag] = useState(true);
+
     function updateList() {
         console.log("Updating user list ............")
-        const promise = axios.get(process.env.REACT_APP_SERVER_URL);
-        promise.then(function (response) {
-            setUsers(response.data)
-        })
+        updateUserList((response) =>
+            setUsers(response.data));
     }
 
     useEffect(function () {
@@ -21,20 +20,20 @@ export default function UserList() {
     })
 
     function deleteUser(id, index) {
-        const promise = axios.delete(process.env.REACT_APP_SERVER_URL + id);
-        promise.then(function (response) {
-            console.log("deleted");
-            //updateList();
-            users.splice(index, 1);
-            const newUsers = [...users];
-            setUsers(newUsers);
-        })
-
+        deleteUserFromUI(id,
+            function (response) {
+                console.log("deleted");
+                //updateList();
+                users.splice(index, 1);
+                const newUsers = [...users];
+                setUsers(newUsers);
+            }
+        )
     }
 
     const sortByAge = () => {
         setFlag(!flag);
-        users.sort((user1,user2)=> flag?user1.age-user2.age:user2.age-user1.age);
+        users.sort((user1, user2) => flag ? user1.age - user2.age : user2.age - user1.age);
         const sortedByAgeUsers = [...users];
         setUsers(sortedByAgeUsers);
     }
