@@ -14,33 +14,41 @@ export default function UserForm() {
         joiningDate: "",
         skill: ""
     }) //hook function
-
-    const [message,setMessage]=useState();
+    const [skills, setSkills] = useState([]);
+    const [message, setMessage] = useState();
 
     const handleEvent = function (event) {
         setUserform({ ...userForm, [event.target.name]: event.target.value });
     }
-    const handleSkills = function (event) {
-        setUserform({ ...userForm, "skill": event });
 
+    const updateSkills = function (event) {
+        setUserform({ ...userForm, "skill": event });
     }
+
+    const getSkillsFromDB = function (event) {
+        const promise = axios.get(process.env.REACT_APP_SKILLS_URL);
+        promise.then(function (response) {
+            setSkills(response.data);
+        })
+    }
+
     const save = function (event) {
         console.log("User first name: " + userForm.firstname);
         console.log("User age: " + userForm.age);
         const promise = axios.post(process.env.REACT_APP_SERVER_URL, userForm);
         promise.then(function (response) {
-          setMessage({...message,type:'Success',text:"Record was saved"});
-         // UserList.updateList();
+            setMessage({ ...message, type: 'Success', text: "Record was saved" });
+            // UserList.updateList();
         })
-        promise.catch(function(error){
-            setMessage({...message,type:{error},text:"Record was not saved"});
-           
+        promise.catch(function (error) {
+            setMessage({ ...message, type: { error }, text: "Record was not saved" });
+
         })
 
 
     }
     return (
-        <div>  
+        <div>
             <h3>Create User form</h3>
             <Message message={message}></Message>
             <div className='form-group'>
@@ -63,12 +71,16 @@ export default function UserForm() {
                 alignRight
                 title="Skill"
                 id="dropdown-menu-align-right"
-                onSelect={handleSkills}
+                onClick={getSkillsFromDB}
+                onSelect={updateSkills}
                 name='skill'
             >
-                <Dropdown.Item eventKey="HTML">HTML</Dropdown.Item>
-                <Dropdown.Item eventKey="CSS">CSS</Dropdown.Item>
-                <Dropdown.Item eventKey="JS">JS</Dropdown.Item>
+                {skills.map(function (skill, index) {
+                    return (
+                        <Dropdown.Item key={index} eventKey={skill}>{skill}
+                        </Dropdown.Item>
+                    )
+                })}
             </DropdownButton>
             <br />
             <div className='form-group'>
