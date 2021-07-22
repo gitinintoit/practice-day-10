@@ -55,6 +55,13 @@
       "joiningDate": "2021-07-07",
       "skill": "HTML",
       "id": 20
+    },
+    {
+      "firstname": "Pariwesh",
+      "age": "39",
+      "joiningDate": "2021-07-19",
+      "skill": "JS",
+      "id": 21
     }
   ],
   "skills": [
