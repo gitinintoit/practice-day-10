@@ -31,17 +31,17 @@ export default function UserForm() {
     }
     
 
-    const save = function (event) {
+    const save = function () {
         console.log("User first name: " + userForm.firstname);
         console.log("User age: " + userForm.age);
         saveDataInDB(userForm,
-            (response)=>( setMessage({ ...message, type: 'Success', text: "Record was saved" })),
+            ()=>( setMessage({ ...message, type: 'Success', text: "Record was saved" })),
             (error)=>( setMessage({ ...message, type: { error }, text: "Record was not saved" }))
         );
     }
     return (
         <div>
-            <h3>Create User form</h3>
+            <h3 align="center">Create User form</h3>
             <Message message={message}></Message>
             <div className='form-group'>
                 <input placeholder='First Name' name='firstname' className='form-control' value={userForm.firstname} onChange={handleEvent}>
