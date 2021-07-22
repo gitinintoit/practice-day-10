@@ -48,6 +48,7 @@ export default function UserList() {
                         <th>FirstName</th>
                         <th onClick={sortByAge}>Age</th>
                         <th>Joining Date</th>
+                        <th>Skill</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -65,6 +66,9 @@ export default function UserList() {
                                     {user.joiningDate}
                                 </td>
                                 <td>
+                                    {user.skill}
+                                </td>
+                                <td align="center">
                                     <button className="btn btn-danger" onClick={() => {
                                         deleteUser(user.id, index);
                                     }}>Delete</button>
