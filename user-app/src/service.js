@@ -5,6 +5,9 @@ export function getAllSkills(succesCB,errorCB){
 }
 
 export function saveDataInDB(data,succesCB,errorCB){
+    axios.post(process.env.REACT_APP_DB_URL, data).then(succesCB).catch(errorCB);
+}
+export function saveDataInServer(data,succesCB,errorCB){
     axios.post(process.env.REACT_APP_SERVER_URL, data).then(succesCB).catch(errorCB);
 }
 
