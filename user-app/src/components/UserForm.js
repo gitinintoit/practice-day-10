@@ -36,8 +36,10 @@ export default function UserForm() {
         console.log("User age: " + userForm.age);
         saveDataInDB(userForm,
             ()=>( setMessage({ ...message, type: 'Success', text: "Record was saved" })),
-            (error)=>( setMessage({ ...message, type: { error }, text: "Record was not saved" }))
-        );
+            (error)=>{
+                 setMessage({ ...message, type: { error }, text: "Record was not saved" });
+                 console.log(error);
+            });
     }
     return (
         <div>
@@ -75,8 +77,8 @@ export default function UserForm() {
                 })}
             </DropdownButton>
             <br />
-            <div className='form-group'>
-                <Button onClick={save} className='form-control'>Save</Button>
+            <div className='form-group' style={{display: "flex",justifyContent: "center",alignItems: "center"}}>
+                <Button onClick={save} className='form-control '>Save</Button>
             </div>
 
         </div>
